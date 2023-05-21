@@ -1,34 +1,62 @@
 package com.utp.webcoulomblaw.controllers;
 
+import com.utp.webcoulomblaw.entities.Carga;
+import com.utp.webcoulomblaw.entities.FuerzaDosCargas;
+import com.utp.webcoulomblaw.entities.FuerzaTresCargas;
 import com.utp.webcoulomblaw.entities.RequestCarga;
+import com.utp.webcoulomblaw.entities.RequestCargaTri;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-/** WebController */
+/**
+ * WebController
+ */
 @Controller
 public class WebController {
-  @GetMapping(value = "/")
-  public String index(Model model) {
-    // add `message` attribute
-    model.addAttribute("message", "Thank you for visiting.");
 
-    // return view name
-    return "form";
-  }
+    @GetMapping(value = "/")
+    public String index(Model model) {
+        // add `message` attribute
+        model.addAttribute("message", "Thank you for visiting.");
 
-  @RequestMapping(value = "/response")
-  public String response(RequestCarga r, Model model) {
-    // add `message` attribute
+        // return view name
+        return "form";
+    }
 
-    double q1 = r.getQ1();
-    double q2 = r.getQ2();
-    double d = r.getD();
+    @GetMapping(value = "/trescargas")
+    public String trescargas(Model model) {
+        // add `message` attribute
+        model.addAttribute("message", "Thank you for visiting.");
 
-    model.addAttribute("result", q1);
+        // return view name
+        return "form2";
+    }
+    @RequestMapping(value = "/response")
+    public String response(RequestCarga r, Model model) {
+        // add `message` attribute
 
-    // return view name
-    return "response";
-  }
+        Carga q1 = r.getCarga1();
+        Carga q2 = r.getCarga2();
+        FuerzaDosCargas F = new FuerzaDosCargas(q1, q2);
+        model.addAttribute("result", F.calcularFuerza());
+
+        // return view name
+        return "response";
+    }
+    
+    @RequestMapping(value = "/responsetri")
+    public String response(RequestCargaTri r, Model model) {
+        // add `message` attribute
+
+        Carga q1 = r.getCarga1();
+        Carga q2 = r.getCarga2();
+        Carga q3=r.getCarga3();
+        FuerzaTresCargas F = new FuerzaTresCargas(q1, q2,q3);
+        model.addAttribute("resulttri", F.calcularFuerzaTri()[1]);
+
+        // return view name
+        return "responsetri";
+    }
 }

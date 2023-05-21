@@ -46,6 +46,12 @@ public class FuerzaDosCargas {
             default: ;break;
         }
         
-        return F;
+        return Math.round(F*100.0)/100.0;
+    }
+    
+    public String mostrarDesarrollo(){
+        return "La fuerza eléctrica entre la carga q1 ="+q1.getQ()
+                +q1.getUnidad()+" y la carga q2 = "+q2.getQ()+q2.getUnidad()+" es: "
+                +this.calcularFuerza()+" N";
     }
 }

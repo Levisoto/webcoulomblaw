@@ -18,45 +18,45 @@ public class WebController {
 
     @GetMapping(value = "/")
     public String index(Model model) {
-        // add `message` attribute
+        
         model.addAttribute("message", "Thank you for visiting.");
 
-        // return view name
+        
         return "form";
     }
 
     @GetMapping(value = "/trescargas")
     public String trescargas(Model model) {
-        // add `message` attribute
+        
         model.addAttribute("message", "Thank you for visiting.");
 
-        // return view name
+        
         return "form2";
     }
     @RequestMapping(value = "/response")
     public String response(RequestCarga r, Model model) {
-        // add `message` attribute
+        
 
         Carga q1 = r.getCarga1();
         Carga q2 = r.getCarga2();
         FuerzaDosCargas F = new FuerzaDosCargas(q1, q2);
-        model.addAttribute("result", F.calcularFuerza());
+        model.addAttribute("result", F.mostrarDesarrollo());
 
-        // return view name
+        
         return "response";
     }
     
     @RequestMapping(value = "/responsetri")
-    public String response(RequestCargaTri r, Model model) {
-        // add `message` attribute
+    public String responsetri(RequestCargaTri r, Model model) {
+        
 
         Carga q1 = r.getCarga1();
         Carga q2 = r.getCarga2();
         Carga q3=r.getCarga3();
         FuerzaTresCargas F = new FuerzaTresCargas(q1, q2,q3);
-        model.addAttribute("resulttri", F.calcularFuerzaTri()[1]);
+        model.addAttribute("resulttri", F.mostrarDesarrolloTri());
 
-        // return view name
+        
         return "responsetri";
     }
 }

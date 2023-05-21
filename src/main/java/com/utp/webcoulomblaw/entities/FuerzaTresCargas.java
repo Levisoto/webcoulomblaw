@@ -28,7 +28,7 @@ public double[] calcularDistanciaTri() {
     double distanciaQ2Q3 = Math.pow((q3.getX() - q2.getX()), 2) + Math.pow((q3.getY() - q2.getY()), 2);
     distanciaQ2Q3 = Math.pow(distanciaQ2Q3, 0.5);
     
-    // Otros cálculos de distancias si es necesario
+   
     
     double[] distancias = {distanciaQ1Q2, distanciaQ1Q3, distanciaQ2Q3};
     
@@ -44,12 +44,96 @@ public double[] calcularFuerzaTri() {
     
    
     fuerzas[1] = k * q1.getQ() * q3.getQ() / Math.pow(this.calcularDistanciaTri()[1], 2);
-    
+        
 
     fuerzas[2] = k * q2.getQ() * q3.getQ() / Math.pow(this.calcularDistanciaTri()[2], 2);
     
-    // Otros cálculos de fuerzas si es necesario
+    
     
     return fuerzas;
 }
+
+public double calcularFuerzaq1q2() {
+        double k, F;
+        k = 9 * Math.pow(10, 9);
+        F = k * q1.getQ() * q2.getQ() / Math.pow(this.calcularDistanciaTri()[0], 2);
+        switch (q1.getUnidad()){
+          
+            case "mC": F *=Math.pow(10,-3);break;
+            case "uC": F *=Math.pow(10,-6);break;   
+            case "nC": F *=Math.pow(10,-9);break;
+            default: ;break;
+        }
+        
+        switch (q2.getUnidad()){
+            
+            case "mC": F *=Math.pow(10,-3);break;
+            case "uC": F *=Math.pow(10,-6);break;   
+            case "nC": F *=Math.pow(10,-9);break;
+            default: ;break;
+        }
+        
+
+        
+        return Math.round(F*1000000.0)/1000000.0;
+    }
+
+public double calcularFuerzaq1q3() {
+        double k, F;
+        k = 9 * Math.pow(10, 9);
+        F = k * q1.getQ() * q3.getQ() / Math.pow(this.calcularDistanciaTri()[1], 2);
+        switch (q1.getUnidad()){
+          
+            case "mC": F *=Math.pow(10,-3);break;
+            case "uC": F *=Math.pow(10,-6);break;   
+            case "nC": F *=Math.pow(10,-9);break;
+            default: ;break;
+        }
+        
+        switch (q3.getUnidad()){
+            
+            case "mC": F *=Math.pow(10,-3);break;
+            case "uC": F *=Math.pow(10,-6);break;   
+            case "nC": F *=Math.pow(10,-9);break;
+            default: ;break;
+        }
+        
+        return Math.round(F*1000000.0)/1000000.0;
+    }
+
+public double calcularFuerzaq2q3() {
+        double k, F;
+        k = 9 * Math.pow(10, 9);
+        F = k * q2.getQ() * q3.getQ() / Math.pow(this.calcularDistanciaTri()[2], 2);
+        switch (q2.getUnidad()){
+          
+            case "mC": F *=Math.pow(10,-3);break;
+            case "uC": F *=Math.pow(10,-6);break;   
+            case "nC": F *=Math.pow(10,-9);break;
+            default: ;break;
+        }
+        
+        switch (q3.getUnidad()){
+            
+            case "mC": F *=Math.pow(10,-3);break;
+            case "uC": F *=Math.pow(10,-6);break;   
+            case "nC": F *=Math.pow(10,-9);break;
+            default: ;break;
+        }
+        
+        return Math.round(F*1000000.0)/1000000.0;
+    }
+
+public String mostrarDesarrolloTri(){
+        return "La fuerza eléctrica entre la carga q1 ="+q1.getQ()
+                +q1.getUnidad()+" y la carga q2 = "+q2.getQ()+q2.getUnidad()+" es: "
+                +this.calcularFuerzaq1q2()+" N \n"+
+                "La fuerza eléctrica entre la carga q1 ="+q1.getQ()
+                +q1.getUnidad()+" y la carga q3 = "+q3.getQ()+q3.getUnidad()+" es: "
+                +this.calcularFuerzaq1q3()+" N \n"+
+                "La fuerza eléctrica entre la carga q2 ="+q2.getQ()
+                +q2.getUnidad()+" y la carga q3 = "+q3.getQ()+q3.getUnidad()+" es: "
+                +this.calcularFuerzaq2q3()+" N \n";
+    }
+
 }

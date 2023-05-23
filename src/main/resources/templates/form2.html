@@ -1,48 +1,123 @@
 <!DOCTYPE html>
 
 <html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Tres Cargas</title>
-  </head>
-  <body>
-    <form action="responsetri" method="get">
-      <label for="q1">Carga 1:</label>
-      <input type="text" id="q1" name="q1" required />
-       <select name="unidad" id="unidad">
-  <option value="mC">mC</option>
-  <option value="uC">uC</option>
-  <option value="nC">nC</option>
-  <option value="C">C</option>
-</select>
-       <input type="text" id="x1" name="x1" required />
-       <input type="text" id="y1" name="y1" required />
-       
-      <br />
-      <label for="q2">Carga 2:</label>
-      <input type="text" id="q2" name="q2" required />
-             <select name="unidad2" id="unidad2">
-  <option value="mC">mC</option>
-  <option value="uC">uC</option>
-  <option value="nC">nC</option>
-  <option value="C">C</option>
-</select>
-       <input type="text" id="x2" name="x2" required />
-       <input type="text" id="y2" name="y2" required />
-    
-    <br />
-      <label for="q2">Carga 3:</label>
-      <input type="text" id="q3" name="q3" required />
-             <select name="unidad3" id="unidad3">
-  <option value="mC">mC</option>
-  <option value="uC">uC</option>
-  <option value="nC">nC</option>
-  <option value="C">C</option>
-</select>
-       <input type="text" id="x3" name="x3" required />
-       <input type="text" id="y3" name="y3" required />
-      <br />
-      <input type="submit" value="Calcular fuerza eléctrica" />
-    </form>
-  </body>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <title>Tres Cargas</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+        <link rel="stylesheet" th:href="@{/css/form.css}" />
+    </head>
+    <body>
+        <div class="row contenedor ml-3 mt-3">
+            <h4 class="mr-3"><a href="/">Cálculo para dos cargas</a></h4>
+            
+            <h4><a href="/trescargas">Cálculo para tres cargas</a></h4>        
+        </div>
+
+        <form action="responsetri" method="get">
+            <div class="column">
+                <div class="column contenedor mb-3">
+                    <label for="q1">Carga 1:</label>
+                    <div class="row">
+                        <div class="col-md-9 mb-3">
+                            <input class="form-control" type="text" id="q1" name="q1" placeholder="Ingrese la carga" required />
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <select class="custom-select d-block w-100"name="unidad" id="unidad">
+                                <option value="mC">mC</option>
+                                <option value="uC">uC</option>
+                                <option value="nC">nC</option>
+                                <option value="C">C</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <label for="q1">Ingresar la posicion</label>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input class="form-control" type="text" id="x1" name="x1" required />
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input class ="form-control" type="text" id="y1" name="y1" required />
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                      <div class="column contenedor mb-3">
+
+                <label for="q2">Carga 2:</label>
+                        <div class="row">
+          <div class="col-md-9 mb-3">
+                <input class="form-control" type="text" id="q2" name="q2" required />
+                          </div>
+          <div class="col-md-3 mb-3">
+                <select class="custom-select d-block w-100" name="unidad2" id="unidad2">
+                    <option value="mC">mC</option>
+                    <option value="uC">uC</option>
+                    <option value="nC">nC</option>
+                    <option value="C">C</option>
+                </select>
+                        </div>
+        </div>
+        <div class="column">
+            <label for="q1">Ingresar la posicion</label>
+            <div class="row">
+            <div class="col-md-6 mb-3">
+                <input class="form-control" type="text" id="x2" name="x2" required />
+                </div>
+                 <div class="col-md-6 mb-3">
+                <input class="form-control" type="text" id="y2" name="y2" required />
+</div>
+          </div>
+        </div>
+      </div>
+               
+       <div class="column contenedor mb-3">               
+                <label for="q2">Carga 3:</label>
+        <div class="row">
+          <div class="col-md-9 mb-3">                  
+          
+                <input class="form-control" type="text" id="q3" name="q3" required />
+                          </div>
+          <div class="col-md-3 mb-3">
+                <select class="custom-select d-block w-100" name="unidad3" id="unidad3">
+                    <option value="mC">mC</option>
+                    <option value="uC">uC</option>
+                    <option value="nC">nC</option>
+                    <option value="C">C</option>
+                </select>
+                        </div>
+        </div>
+                        <div class="column">
+                                      <label for="q1">Ingresar la posicion</label>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+                <input class="form-control" type="text" id="x3" name="x3" required />
+                            </div>
+            <div class="col-md-6 mb-3">
+                <input class=" form-control" type="text" id="y3" name="y3" required />
+                </div>
+          </div>
+        </div>
+      </div>
+                <input class="btn btn-primary btn-lg btn-block" type="submit" value="Calcular fuerza eléctrica" />
+               </div>
+            </div>
+                  <div class="imafuerza">
+      <img th:src="@{/images/form3cargas.jpeg}"     >
+      </div>
+        </form>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+                integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+                integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+                integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    </body>
 </html>

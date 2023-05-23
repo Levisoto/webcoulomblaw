@@ -40,8 +40,18 @@ public class WebController {
         Carga q1 = r.getCarga1();
         Carga q2 = r.getCarga2();
         FuerzaDosCargas F = new FuerzaDosCargas(q1, q2);
+        double q1valor=q1.getQ();
+        double q2valor=q2.getQ();
+        String img="";
+        if(q1valor>0 && q2valor>0){
+            img+="/images/imagen2cargas.png";
+        }else if(q1valor>0 && q2valor<0){
+            img+="/images/2fuerzas.png";
+        }else if(q1valor<0 && q2valor>0){
+            img+="/images/form3cargas.jpeg";
+        }
         model.addAttribute("result", F.mostrarDesarrollo());
-
+        model.addAttribute("imagen2cargas", img);
         
         return "response";
     }

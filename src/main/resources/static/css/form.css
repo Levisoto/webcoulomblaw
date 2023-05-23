@@ -6,3 +6,22 @@ form {
   border: 2px solid #ced4da;
   padding: 10px;
 }
+.imafuerza{
+    display:flex;
+    justify-content:center;
+    height: 400px;
+}
+
+h2{
+    color: #0066CC ;
+    text-decoration: underline;
+}
+.fondo{
+    background-color: #F5F5F5;
+    padding-left: 80px;
+    padding-top:50px;
+    height:100vh;
+}
+.texto{
+    color:#008000;
+}

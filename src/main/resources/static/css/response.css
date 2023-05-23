@@ -1,0 +1,14 @@
+form {
+  padding: 50px;
+}
+
+.contenedor {
+  border: 2px solid #ced4da;
+  padding: 10px;
+}
+
+.imafuerza{
+    display:flex;
+    justify-content:center;
+    height: 400px;
+}
